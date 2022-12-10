@@ -40,7 +40,7 @@ export default class CreateTodo extends Component<Props, State> {
                             finishDate: new Date(e.target.value)})}
                     />
                 </div>
-                <div style={{display: 'flex', flexDirection: 'column'}}>
+                <div className='flexColDiv'>
                     <button onClick={(e) => {
                         this.props.handleAddTodo({
                             todoName: this.state.todoName, 
