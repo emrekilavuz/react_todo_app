@@ -1,5 +1,20 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +25,83 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  padding: 50px 150px;
+  border-radius: 10px;
+  margin: 3rem auto;
+  margin-top: 3rem;
+  width: 70%;
+  background-color: #dadae4;
+  box-shadow: 1px 5px 10px rgba(0,0,0,0.3);
+}
+
+input {
+  padding: 8px 12px;
+  margin: 10px 0;
+  border: 1px solid rgba(200, 200, 200, 0.8);
+  border-radius: 5px;
+  box-shadow: 1px 5px 10px rgba(0,0,0,0.2);
+}
+
+button {
+  padding: 15px;
+  border: 0;
+  border-radius: 8px;
+  margin: 18px 0;
+  background-color: rgb(80, 80, 180);
+  color: #ededed;
+  font-size: 1.1rem;
+  box-shadow: 1px 5px 10px rgba(0,0,0,0.3);
+}
+
+.todoElContainer{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(140, 140, 200, 0.95);
+  padding: 20px 25px;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 2px 5px 10px rgba(0,0,0,0.5);
+}
+
+.todoEl {
+  color: #f3f3f3;
+}
+
+.todoEl button {
+  margin: 5px 0;
+  background-color: #88aadd;
+  color: #fff;
+}
+
+.todoEl h3, .todoEl h4{
+  margin: 10px 5px;
+  font-weight: 400;
+}
+
+.todoEl label {
+  margin: 5px;
+  font-weight: 500;
+}
+
+.todoElImgContainer {
+  margin-right: 2rem;
+}
+
+.todoElImgContainer img {
+  max-height: 150px;
+  border-radius: 8px;
+}
+
+.flexColDiv {
+  display: flex;
+  flex-direction: column;
 }
