@@ -8,7 +8,6 @@ type Props = {
 }
 
 type State = {
-    todoList: TodoStruct[]
 }
 
 export default class TodoList extends Component<Props, State> {

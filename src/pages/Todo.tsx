@@ -7,42 +7,29 @@ type State = {
     todoList: TodoStruct[]
 }
 
-type Props = {
-    bos: string
-};
 
+export default class Todo extends Component<any, State> {
 
-export default class Todo extends Component<Props, State> {
-
-    constructor(props: Props){
+    constructor(props: any){
         super(props);
-        let rawTodos = localStorage.getItem("todos");
-        if(rawTodos){
-            let alreadyHave = JSON.parse(rawTodos);
-            this.state = {
-                todoList: alreadyHave
-            }
+        this.state = {
+            todoList: localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")!) : []
         }
-        else{
-            this.state = {
-                todoList: []
-            }
-        }
-        
         this.handleAddTodo = this.handleAddTodo.bind(this);
         this.handleChangeCompleted = this.handleChangeCompleted.bind(this);
     }
 
-    handleAddTodo(todo: TodoStruct){
+
+    handleAddTodo(todo: TodoStruct) {
         let newTodoList = [...this.state.todoList];
-        this.setState({todoList: []}, () => this.setState({todoList: [...newTodoList, todo]}));
+        this.setState({ todoList: [] }, () => this.setState({ todoList: [...newTodoList, todo] }));
         localStorage.setItem("todos", JSON.stringify([...newTodoList, todo]));
     }
 
-    handleChangeCompleted(id: string){
+    handleChangeCompleted(id: string) {
         let newTodoList = [...this.state.todoList];
         let newTodo = newTodoList.find(x => x.id === id);
-        if(!newTodo){
+        if (!newTodo) {
             return;
         }
         else {
@@ -51,18 +38,18 @@ export default class Todo extends Component<Props, State> {
             newCompleted = !newCompleted;
             newTodo.completed = newCompleted;
             newTodoList[indx] = newTodo;
-            this.setState({todoList: []}, () => this.setState({todoList: newTodoList}));
+            this.setState({ todoList: [] }, () => this.setState({ todoList: newTodoList }));
             localStorage.setItem("todos", JSON.stringify([...newTodoList]));
         }
-        
+
     }
 
-  render() {
-    return (
-      <div>
-        <CreateTodo handleAddTodo={this.handleAddTodo}/>
-        <TodoList handleChangeCompleted={this.handleChangeCompleted} todoList={this.state.todoList}/>
-      </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                <CreateTodo handleAddTodo={this.handleAddTodo} />
+                <TodoList handleChangeCompleted={this.handleChangeCompleted} todoList={this.state.todoList} />
+            </div>
+        )
+    }
 }
